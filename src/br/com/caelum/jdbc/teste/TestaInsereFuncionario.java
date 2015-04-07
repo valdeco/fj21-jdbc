@@ -16,7 +16,7 @@ public class TestaInsereFuncionario {
 		// grave nessa conexao
 		FuncionarioDao dao = new FuncionarioDao();
 
-		// método elegante
+		// metodo elegante
 		dao.adiciona(funcionario);
 
 		System.out.println("Gravado!");

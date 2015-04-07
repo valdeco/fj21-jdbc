@@ -24,7 +24,7 @@ public class FuncionarioDao {
 				+ " values (?,?,?)";
 
 		try {
-			// prepared statement para inserçao
+			// prepared statement para insercao
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			// seta os valores
@@ -56,13 +56,12 @@ public class FuncionarioDao {
 				funcionario.setUsuario(rs.getString("usuario"));
 				funcionario.setSenha(rs.getString("senha"));
 
-				// adicionando o objeto à lista
+				// adicionando o objeto a lista
 				funcionarios.add(funcionario);
 			}
 			rs.close();
 			stmt.close();
 			return funcionarios;
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -94,12 +93,10 @@ public class FuncionarioDao {
 
 	public void remove(Funcionario funcionario) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete"
-					+ "from funcionarios where id=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from funcionarios where id=?");
 			stmt.setLong(1, funcionario.getId());
 			stmt.execute();
 			stmt.close();
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
